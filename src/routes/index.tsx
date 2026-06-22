@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Menu, X, ArrowRight, ShieldCheck, Users, Calendar, BarChart3, Award,
-  LayoutDashboard, UserCheck, Eye, FileDown, Lock, BadgeCheck, Mail,
+  ArrowRight, ShieldCheck, Users, Calendar, BarChart3, Award,
+  LayoutDashboard, UserCheck, Eye, FileDown, Lock, BadgeCheck,
 } from "lucide-react";
-import { DinLogo } from "@/components/din/DinLogo";
 import { DemoModal, INSTRUCTOR_URL, SCHOOL_URL } from "@/components/din/DemoModal";
 import { PhoneMockup, DesktopMockup } from "@/components/din/Mockups";
+import { SiteHeader } from "@/components/din/SiteHeader";
+import { SiteFooter } from "@/components/din/SiteFooter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,68 +21,15 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const NAV = [
-  { href: "#come-funziona", label: "Come funziona" },
-  { href: "#per-istruttori", label: "Per istruttori" },
-  { href: "#per-autoscuole", label: "Per autoscuole" },
-];
-
 function LandingPage() {
   const [modal, setModal] = useState(false);
-  const [menu, setMenu] = useState(false);
   const openModal = () => setModal(true);
   const openExternal = (url: string) => window.open(url, "_blank", "noopener,noreferrer");
 
   return (
     <div className="bg-background text-foreground">
-      {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
-          <a href="#top" className="shrink-0"><DinLogo size="sm" /></a>
-          <nav className="hidden md:flex items-center gap-8">
-            {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition">
-                {n.label}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={openModal}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition"
-            >
-              Richiedi una demo
-            </button>
-            <button
-              onClick={() => setMenu((s) => !s)}
-              className="md:hidden grid h-10 w-10 place-items-center rounded-lg border border-border"
-              aria-label="Menu"
-            >
-              {menu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          </div>
-        </div>
-        {menu && (
-          <div className="md:hidden border-t border-border bg-background px-5 py-4 space-y-3">
-            {NAV.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                onClick={() => setMenu(false)}
-                className="block text-sm font-medium text-foreground"
-              >
-                {n.label}
-              </a>
-            ))}
-            <button
-              onClick={() => { setMenu(false); openModal(); }}
-              className="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
-            >
-              Richiedi una demo
-            </button>
-          </div>
-        )}
-      </header>
+      <SiteHeader />
+
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
@@ -329,54 +277,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-surface-alt">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-14 pb-6">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <DinLogo size="sm" />
-              <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
-                L'ecosistema professionale per istruttori e autoscuole.
-              </p>
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-foreground">Naviga</p>
-              <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-                {NAV.map((n) => (
-                  <li key={n.href}>
-                    <a href={n.href} className="hover:text-foreground transition">{n.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-foreground">Contatti</p>
-              <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-                <li>
-                  <a href="mailto:info@din.it" className="inline-flex items-center gap-1.5 hover:text-foreground transition">
-                    <Mail className="h-4 w-4" /> info@din.it
-                  </a>
-                </li>
-                <li>
-                  <button onClick={openModal} className="text-left hover:text-foreground transition">
-                    Richiedi una demo
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-foreground">Legale</p>
-              <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-foreground transition">Cookie Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 border-t border-border pt-5 text-xs text-muted-foreground">
-            © 2026 DIN — Drive Instructor Network · P.IVA 00000000000
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <DemoModal open={modal} onClose={() => setModal(false)} />
     </div>
