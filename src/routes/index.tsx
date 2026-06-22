@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Menu, X, ArrowRight, ShieldCheck, Users, Calendar, BarChart3, Award,
-  LayoutDashboard, UserCheck, Eye, FileDown,
+  LayoutDashboard, UserCheck, Eye, FileDown, Lock, BadgeCheck, Mail,
 } from "lucide-react";
 import { DinLogo } from "@/components/din/DinLogo";
 import { DemoModal, INSTRUCTOR_URL, SCHOOL_URL } from "@/components/din/DemoModal";
