@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   Menu, X, ArrowRight, ShieldCheck, Users, Calendar, BarChart3, Award,
-  LayoutDashboard, UserCheck, Eye, FileDown,
+  LayoutDashboard, UserCheck, Eye, FileDown, Lock, BadgeCheck, Mail,
 } from "lucide-react";
 import { DinLogo } from "@/components/din/DinLogo";
 import { DemoModal, INSTRUCTOR_URL, SCHOOL_URL } from "@/components/din/DemoModal";
@@ -280,6 +280,36 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* Credibilità */}
+      <section className="border-t border-border bg-background">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8 py-20 lg:py-24">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground leading-tight">
+              Nato dall'esperienza di chi lavora ogni giorno con le autoscuole.
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              DIN nasce dall'osservazione diretta del lavoro di istruttori e scuole guida italiane,
+              per dare struttura e riconoscimento a una professione che oggi ne è priva.
+            </p>
+          </div>
+          <div className="mt-12 grid md:grid-cols-3 gap-5">
+            {[
+              { i: Lock, t: "Dati di proprietà dell'istruttore", d: "Privacy e controllo by design." },
+              { i: ShieldCheck, t: "Conforme al GDPR", d: "Trattamento dati a norma di legge." },
+              { i: BadgeCheck, t: "Modello a identità verificata", d: "Ogni istruttore ha un ID DIN univoco." },
+            ].map((f) => (
+              <div key={f.t} className="rounded-2xl border border-border bg-background p-6 shadow-soft">
+                <span className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-primary">
+                  <f.i className="h-5 w-5" />
+                </span>
+                <h3 className="mt-4 font-bold text-foreground">{f.t}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA finale */}
       <section className="bg-primary">
         <div className="mx-auto max-w-5xl px-5 lg:px-8 py-20 lg:py-24 text-center">
@@ -300,18 +330,50 @@ function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8 py-12 grid md:grid-cols-[1fr_auto] gap-8 items-start">
-          <DinLogo withTagline size="md" />
-          <nav className="flex flex-wrap gap-6 text-sm text-muted-foreground">
-            {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="hover:text-foreground transition">{n.label}</a>
-            ))}
-          </nav>
-        </div>
-        <div className="border-t border-border">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8 py-5 text-xs text-muted-foreground">
-            © 2026 DIN — Drive Instructor Network
+      <footer className="bg-surface-alt">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-14 pb-6">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <DinLogo size="sm" />
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
+                L'ecosistema professionale per istruttori e autoscuole.
+              </p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground">Naviga</p>
+              <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+                {NAV.map((n) => (
+                  <li key={n.href}>
+                    <a href={n.href} className="hover:text-foreground transition">{n.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground">Contatti</p>
+              <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+                <li>
+                  <a href="mailto:info@din.it" className="inline-flex items-center gap-1.5 hover:text-foreground transition">
+                    <Mail className="h-4 w-4" /> info@din.it
+                  </a>
+                </li>
+                <li>
+                  <button onClick={openModal} className="text-left hover:text-foreground transition">
+                    Richiedi una demo
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground">Legale</p>
+              <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-foreground transition">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-foreground transition">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 border-t border-border pt-5 text-xs text-muted-foreground">
+            © 2026 DIN — Drive Instructor Network · P.IVA 00000000000
           </div>
         </div>
       </footer>
