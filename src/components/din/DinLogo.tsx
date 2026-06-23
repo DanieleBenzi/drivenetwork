@@ -7,9 +7,9 @@ interface DinLogoProps {
 
 export function DinLogo({ size = "md", className = "" }: DinLogoProps) {
   const heights = {
-    sm: "h-9",
-    md: "h-12",
-    lg: "h-16",
+    sm: "h-16",
+    md: "h-24",
+    lg: "h-32",
   } as const;
 
   return (
