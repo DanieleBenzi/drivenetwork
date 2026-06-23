@@ -8,6 +8,7 @@ const NAV = [
   { href: "/#come-funziona", label: "Come funziona" },
   { href: "/#per-istruttori", label: "Per istruttori" },
   { href: "/#per-autoscuole", label: "Per autoscuole" },
+  { href: "/#prezzi", label: "Prezzi" },
 ];
 
 export function SiteHeader() {
@@ -16,8 +17,8 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 lg:px-8">
+      <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 lg:px-8">
           <Link to="/" className="shrink-0"><DinLogo size="sm" /></Link>
           <nav className="hidden md:flex items-center gap-8">
             {NAV.map((n) => (
@@ -29,13 +30,13 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setModal(true)}
-              className="hidden md:inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
             >
               Richiedi una demo
             </button>
             <button
               onClick={() => setMenu((s) => !s)}
-              className="md:hidden grid h-10 w-10 place-items-center rounded-lg border border-border"
+              className="md:hidden grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground"
               aria-label="Menu"
             >
               {menu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

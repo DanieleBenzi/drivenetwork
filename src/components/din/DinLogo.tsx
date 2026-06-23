@@ -1,21 +1,23 @@
+import logoAsset from "@/assets/din-logo.png.asset.json";
+
 interface DinLogoProps {
-  withTagline?: boolean;
   size?: "sm" | "md" | "lg";
+  className?: string;
 }
 
-export function DinLogo({ withTagline = false, size = "md" }: DinLogoProps) {
-  const sizes = {
-    sm: "text-2xl",
-    md: "text-3xl",
-    lg: "text-5xl",
+export function DinLogo({ size = "md", className = "" }: DinLogoProps) {
+  const heights = {
+    sm: "h-9",
+    md: "h-12",
+    lg: "h-16",
   } as const;
 
   return (
-    <div className="flex flex-col items-start gap-1">
-      <span className={`din-logo ${sizes[size]}`} aria-label="DIN">
-        D<span className="din-logo-bar" aria-hidden="true" />N
-      </span>
-      {withTagline && <span className="din-tagline">Drive Instructor Network</span>}
-    </div>
+    <img
+      src={logoAsset.url}
+      alt="DIN — Drive Instructor Network"
+      className={`${heights[size]} w-auto select-none ${className}`}
+      draggable={false}
+    />
   );
 }
