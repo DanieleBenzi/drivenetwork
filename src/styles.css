@@ -35,40 +35,43 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-surface-alt: var(--surface-alt);
+  --color-surface-deep: var(--surface-deep);
 
-  --shadow-soft: 0 1px 2px rgba(26, 35, 51, 0.04), 0 8px 24px rgba(26, 35, 51, 0.06);
-  --shadow-card: 0 1px 2px rgba(26, 35, 51, 0.05), 0 12px 32px rgba(26, 35, 51, 0.08);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 0 1px rgba(46, 123, 255, 0.25), 0 10px 40px -10px rgba(46, 123, 255, 0.55);
 }
 
 :root {
   --radius: 0.75rem;
 
-  /* Brand */
-  --background: #ffffff;
-  --foreground: #1a2333;
-  --surface-alt: #f5f7fa;
+  /* Dark theme — DIN premium */
+  --background: #0a0e1a;
+  --foreground: #ffffff;
+  --surface-alt: #0e1420;
+  --surface-deep: #080b14;
 
-  --card: #ffffff;
-  --card-foreground: #1a2333;
-  --popover: #ffffff;
-  --popover-foreground: #1a2333;
+  --card: #151c2a;
+  --card-foreground: #ffffff;
+  --popover: #151c2a;
+  --popover-foreground: #ffffff;
 
   --primary: #2e7bff;
   --primary-foreground: #ffffff;
   --primary-hover: #1b5fd9;
 
-  --secondary: #f5f7fa;
-  --secondary-foreground: #1a2333;
-  --muted: #f5f7fa;
-  --muted-foreground: #5a6678;
-  --accent: #eaf1ff;
-  --accent-foreground: #1b5fd9;
+  --secondary: #131a2a;
+  --secondary-foreground: #ffffff;
+  --muted: #131a2a;
+  --muted-foreground: #a8b3c5;
+  --accent: rgba(46, 123, 255, 0.12);
+  --accent-foreground: #6ea3ff;
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
 
-  --border: #e6eaf0;
-  --input: #e6eaf0;
+  --border: #232c3e;
+  --input: #232c3e;
   --ring: #2e7bff;
 }
 
@@ -78,6 +81,7 @@
   }
   html {
     scroll-behavior: smooth;
+    background-color: var(--color-background);
   }
   body {
     background-color: var(--color-background);
@@ -89,34 +93,5 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
-  }
-}
-
-@layer components {
-  .din-logo {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-style: italic;
-    color: var(--foreground);
-    letter-spacing: -0.04em;
-    display: inline-flex;
-    align-items: center;
-    line-height: 1;
-  }
-  .din-logo-bar {
-    display: inline-block;
-    width: 0.18em;
-    height: 0.95em;
-    background: var(--primary);
-    border-radius: 2px;
-    margin: 0 0.08em;
-    transform: rotate(14deg) translateY(0.02em);
-  }
-  .din-tagline {
-    font-size: 0.6rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted-foreground);
-    font-weight: 500;
   }
 }

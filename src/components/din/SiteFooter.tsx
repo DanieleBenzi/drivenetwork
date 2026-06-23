@@ -8,13 +8,14 @@ const NAV = [
   { href: "/#come-funziona", label: "Come funziona" },
   { href: "/#per-istruttori", label: "Per istruttori" },
   { href: "/#per-autoscuole", label: "Per autoscuole" },
+  { href: "/#prezzi", label: "Prezzi" },
 ];
 
 export function SiteFooter() {
   const [modal, setModal] = useState(false);
   return (
     <>
-      <footer className="bg-surface-alt">
+      <footer className="bg-surface-deep border-t border-border">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-14 pb-6">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div>
