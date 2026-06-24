@@ -47,12 +47,12 @@ function LandingPage() {
                 <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-glow" /> Ecosistema per istruttori e autoscuole
               </span>
               <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-                Dai ai tuoi istruttori l'identità professionale che meritano.
+                La tua carriera non dovrebbe ricominciare ogni volta che cambi autoscuola.
               </h1>
               <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
-                DIN è l'ecosistema di due app collegate per il mondo delle autoscuole italiane: il
-                registro professionale dell'istruttore e il gestionale dell'autoscuola, allineati su
-                un'unica identità verificata.
+                Costruisci il tuo storico professionale.<br />
+                Registra guide, allievi, esami e risultati.<br />
+                Ottieni certificazioni e porta la tua reputazione con te ovunque lavori.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
