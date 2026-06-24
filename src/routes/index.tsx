@@ -47,12 +47,10 @@ function LandingPage() {
                 <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-glow" /> Ecosistema per istruttori e autoscuole
               </span>
               <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-                La tua carriera non dovrebbe ricominciare ogni volta che cambi autoscuola.
+                Il network professionale per <span className="text-primary">istruttori di guida</span> e <span className="text-primary">autoscuole</span>.
               </h1>
               <p className="mt-5 text-lg text-muted-foreground max-w-xl leading-relaxed">
-                Costruisci il tuo storico professionale.<br />
-                Registra guide, allievi, esami e risultati.<br />
-                Ottieni certificazioni e porta la tua reputazione con te ovunque lavori.
+                DIN dà a ogni istruttore un'identità professionale verificata — ID, certificazioni e storico di carriera — e alle autoscuole una vista trasparente sui propri istruttori collegati. Un'unica piattaforma, due app connesse.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
@@ -68,9 +66,10 @@ function LandingPage() {
                   Scopri come funziona
                 </a>
               </div>
-              <div className="mt-8 flex items-center gap-6 text-xs text-muted-foreground">
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-primary" /> ID DIN verificato</span>
                 <span className="flex items-center gap-1.5"><Award className="h-4 w-4 text-primary" /> Certificazioni tracciate</span>
+                <span className="flex items-center gap-1.5"><LayoutDashboard className="h-4 w-4 text-primary" /> Due app: istruttori + autoscuole</span>
               </div>
             </div>
 
