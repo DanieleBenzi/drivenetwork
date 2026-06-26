@@ -78,22 +78,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "DIN — Drive Instructor Network" },
-      { name: "description", content: "L'ecosistema che dà identità professionale agli istruttori di guida e trasparenza alle autoscuole italiane." },
-      { property: "og:title", content: "DIN — Drive Instructor Network" },
-      { property: "og:description", content: "L'ecosistema che dà identità professionale agli istruttori di guida e trasparenza alle autoscuole italiane." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:title", content: "DIN — Drive Instructor Network" },
-      { name: "twitter:description", content: "L'ecosistema che dà identità professionale agli istruttori di guida e trasparenza alle autoscuole italiane." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4f8e7923-9a47-4b76-8e6b-5da3dd994e19/id-preview-3e6cd928--05b32e19-9e7b-488f-96f5-bf9104e8ed46.lovable.app-1782154781464.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4f8e7923-9a47-4b76-8e6b-5da3dd994e19/id-preview-3e6cd928--05b32e19-9e7b-488f-96f5-bf9104e8ed46.lovable.app-1782154781464.png" },
+      { property: "og:site_name", content: "DIN — Drive Instructor Network" },
+      { property: "og:locale", content: "it_IT" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#0a0e1a" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png" },
+      { rel: "apple-touch-icon", href: "/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "DIN — Drive Instructor Network",
+          alternateName: "DIN",
+          url: "https://drivenetwork.lovable.app",
+          logo: "https://drivenetwork.lovable.app/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png",
+          description: "Ecosistema professionale per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola.",
+          areaServed: "IT",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -104,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="it">
       <head>
         <HeadContent />
       </head>

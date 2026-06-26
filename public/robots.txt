@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drivenetwork.lovable.app/sitemap.xml

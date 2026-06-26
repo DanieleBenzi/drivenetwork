@@ -9,13 +9,99 @@ import { PhoneMockup, DesktopMockup } from "@/components/din/Mockups";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
 
+const SITE_URL = "https://drivenetwork.lovable.app";
+const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4f8e7923-9a47-4b76-8e6b-5da3dd994e19/id-preview-3e6cd928--05b32e19-9e7b-488f-96f5-bf9104e8ed46.lovable.app-1782154781464.png";
+
+const FAQS: { q: string; a: string }[] = [
+  {
+    q: "Cos'è DIN?",
+    a: "DIN (Drive Instructor Network) è la piattaforma professionale italiana per istruttori di guida e autoscuole. Si compone di due app collegate: il registro digitale dell'istruttore, con ID DIN univoco e storico verificato, e il gestionale dell'autoscuola, che permette di seguire in trasparenza il lavoro degli istruttori collegati.",
+  },
+  {
+    q: "Come funziona il collegamento tra istruttore e autoscuola?",
+    a: "L'autoscuola invia una richiesta di collegamento all'istruttore tramite il suo ID DIN. L'istruttore approva o rifiuta dall'app: solo dopo l'approvazione la scuola guida vede in sola lettura allievi, guide ed esami registrati. Un istruttore può essere collegato a una sola autoscuola alla volta.",
+  },
+  {
+    q: "Un istruttore può lavorare con più autoscuole?",
+    a: "Non in contemporanea: il modello DIN prevede un collegamento attivo per volta, per garantire chiarezza nei rapporti professionali. L'istruttore può però cambiare autoscuola in qualsiasi momento, portando con sé tutto il proprio storico, le certificazioni e le statistiche di carriera.",
+  },
+  {
+    q: "Quanto costa DIN?",
+    a: "Il piano per gli istruttori parte da 9,90€ al mese e include profilo verificato, badge, certificazioni e statistiche avanzate. Il piano per le autoscuole parte da 99€ al mese fino a 5 istruttori, con dashboard completa, gestione istruttori, monitoraggio esami, reportistica ed export documentale.",
+  },
+  {
+    q: "L'autoscuola può modificare i dati dell'istruttore?",
+    a: "No. L'autoscuola accede in sola lettura ai dati operativi registrati dall'istruttore: vede allievi, guide, esami e statistiche aggregate, ma non può modificarli né cancellarli. I dati restano di proprietà dell'istruttore.",
+  },
+  {
+    q: "I dati degli istruttori sono al sicuro?",
+    a: "Sì. DIN tratta i dati in conformità al Regolamento UE 2016/679 (GDPR) e al Codice Privacy italiano. La proprietà dei dati operativi resta dell'istruttore, l'accesso dell'autoscuola è limitato e tracciato, e ogni profilo è legato a un ID DIN univoco a identità verificata.",
+  },
+  {
+    q: "DIN sostituisce il gestionale dell'autoscuola?",
+    a: "DIN copre il flusso professionale che oggi manca: registro istruttore, identità verificata e vista trasparente per l'autoscuola sul lavoro dei suoi istruttori collegati. Non sostituisce gli adempimenti amministrativi della scuola guida, ma li affianca con dati operativi reali ed esportabili.",
+  },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DIN — Drive Instructor Network" },
-      { name: "description", content: "L'ecosistema che dà identità professionale agli istruttori di guida e trasparenza alle autoscuole italiane." },
-      { property: "og:title", content: "DIN — Drive Instructor Network" },
-      { property: "og:description", content: "Due app collegate: il registro dell'istruttore e il gestionale dell'autoscuola." },
+      { title: "DIN — Network professionale per istruttori di guida e autoscuole" },
+      { name: "description", content: "DIN è il network professionale per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola. Richiedi una demo." },
+      { property: "og:title", content: "DIN — Network professionale per istruttori di guida e autoscuole" },
+      { property: "og:description", content: "Identità professionale verificata per istruttori di guida e vista trasparente per le autoscuole. Due app, un ecosistema." },
+      { property: "og:url", content: SITE_URL + "/" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: "DIN — Network professionale per istruttori di guida e autoscuole" },
+      { name: "twitter:description", content: "Identità professionale verificata per istruttori di guida e vista trasparente per le autoscuole." },
+      { name: "twitter:image", content: OG_IMAGE },
+    ],
+    links: [
+      { rel: "canonical", href: SITE_URL + "/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "SoftwareApplication",
+              name: "DIN — App Istruttori",
+              applicationCategory: "BusinessApplication",
+              operatingSystem: "iOS, Android",
+              description: "Registro professionale per istruttori di guida: allievi, guide, esami, ID DIN verificato e certificazioni portabili.",
+              offers: {
+                "@type": "Offer",
+                price: "9.90",
+                priceCurrency: "EUR",
+                priceSpecification: { "@type": "UnitPriceSpecification", price: "9.90", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" } },
+              },
+            },
+            {
+              "@type": "SoftwareApplication",
+              name: "DIN — App Autoscuole",
+              applicationCategory: "BusinessApplication",
+              operatingSystem: "Web",
+              description: "Gestionale per autoscuole: dashboard aggregata, istruttori collegati verificati, monitoraggio esami ed export documentale.",
+              offers: {
+                "@type": "Offer",
+                price: "99.00",
+                priceCurrency: "EUR",
+                priceSpecification: { "@type": "UnitPriceSpecification", price: "99.00", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" } },
+              },
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: FAQS.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: LandingPage,
@@ -29,9 +115,11 @@ function LandingPage() {
   return (
     <div className="bg-background text-foreground">
       <SiteHeader />
+      <main id="main">
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden">
+      <section id="top" className="relative overflow-hidden" aria-label="Introduzione">
+
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10"
@@ -314,8 +402,32 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="border-t border-border bg-surface-alt">
+        <div className="mx-auto max-w-4xl px-5 lg:px-8 py-20 lg:py-24">
+          <div className="text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">Domande frequenti</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-foreground">
+              Tutto quello che vuoi sapere su DIN
+            </h2>
+          </div>
+          <dl className="mt-10 space-y-4">
+            {FAQS.map((f) => (
+              <div key={f.q} className="rounded-2xl border border-border bg-card p-6 lg:p-7">
+                <dt>
+                  <h3 className="text-base lg:text-lg font-bold text-foreground">{f.q}</h3>
+                </dt>
+                <dd className="mt-2 text-sm lg:text-base text-muted-foreground leading-relaxed">
+                  {f.a}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       {/* CTA finale */}
-      <section className="relative border-t border-border overflow-hidden">
+      <section className="relative border-t border-border overflow-hidden" aria-label="Richiedi una demo">
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
@@ -340,8 +452,10 @@ function LandingPage() {
           </button>
         </div>
       </section>
+      </main>
 
       <SiteFooter />
+
 
       <DemoModal open={modal} onClose={() => setModal(false)} />
     </div>
