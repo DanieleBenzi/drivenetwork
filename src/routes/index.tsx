@@ -115,9 +115,11 @@ function LandingPage() {
   return (
     <div className="bg-background text-foreground">
       <SiteHeader />
+      <main id="main">
 
       {/* Hero */}
-      <section id="top" className="relative overflow-hidden">
+      <section id="top" className="relative overflow-hidden" aria-label="Introduzione">
+
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10"
@@ -400,8 +402,32 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="border-t border-border bg-surface-1">
+        <div className="mx-auto max-w-4xl px-5 lg:px-8 py-20 lg:py-24">
+          <div className="text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-primary">Domande frequenti</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-foreground">
+              Tutto quello che vuoi sapere su DIN
+            </h2>
+          </div>
+          <dl className="mt-10 space-y-4">
+            {FAQS.map((f) => (
+              <div key={f.q} className="rounded-2xl border border-border bg-card p-6 lg:p-7">
+                <dt>
+                  <h3 className="text-base lg:text-lg font-bold text-foreground">{f.q}</h3>
+                </dt>
+                <dd className="mt-2 text-sm lg:text-base text-muted-foreground leading-relaxed">
+                  {f.a}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       {/* CTA finale */}
-      <section className="relative border-t border-border overflow-hidden">
+      <section className="relative border-t border-border overflow-hidden" aria-label="Richiedi una demo">
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
@@ -426,8 +452,10 @@ function LandingPage() {
           </button>
         </div>
       </section>
+      </main>
 
       <SiteFooter />
+
 
       <DemoModal open={modal} onClose={() => setModal(false)} />
     </div>
