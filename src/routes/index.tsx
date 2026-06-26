@@ -403,7 +403,7 @@ function LandingPage() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="border-t border-border bg-surface-1">
+      <section id="faq" className="border-t border-border bg-surface-alt">
         <div className="mx-auto max-w-4xl px-5 lg:px-8 py-20 lg:py-24">
           <div className="text-center">
             <p className="text-xs font-bold uppercase tracking-widest text-primary">Domande frequenti</p>
