@@ -1,5 +1,3 @@
-import logoAsset from "@/assets/din-logo.png.asset.json";
-
 interface DinLogoProps {
   size?: "sm" | "md" | "lg";
   className?: string;
@@ -14,7 +12,7 @@ export function DinLogo({ size = "md", className = "" }: DinLogoProps) {
 
   return (
     <img
-      src={logoAsset.url}
+      src="/din-logo.png"
       alt="DIN — Drive Instructor Network"
       className={`${heights[size]} w-auto select-none ${className}`}
       draggable={false}
