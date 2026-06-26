@@ -9,7 +9,7 @@ import { PhoneMockup, DesktopMockup } from "@/components/din/Mockups";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
 
-const SITE_URL = "https://drivenetwork.lovable.app";
+const SITE_URL = "https://www.dinitalia.it";
 const OG_IMAGE = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4f8e7923-9a47-4b76-8e6b-5da3dd994e19/id-preview-3e6cd928--05b32e19-9e7b-488f-96f5-bf9104e8ed46.lovable.app-1782154781464.png";
 
 const FAQS: { q: string; a: string }[] = [
