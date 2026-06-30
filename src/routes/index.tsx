@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, ShieldCheck, Users, Calendar, BarChart3, Award,
   LayoutDashboard, UserCheck, Eye, FileDown, Lock, BadgeCheck, Check,
@@ -258,12 +258,12 @@ function LandingPage() {
                 ))}
               </ul>
 
-              <button
-                onClick={() => openExternal(INSTRUCTOR_URL)}
+              <Link
+                to="/app"
                 className="mt-9 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
               >
-                Richiedi una demo <ArrowRight className="h-4 w-4" />
-              </button>
+                Usa l'app <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
 
             <div className="flex justify-center lg:justify-end">
@@ -378,8 +378,8 @@ function LandingPage() {
                 "Community esclusiva",
                 "Tutti gli strumenti DIN",
               ]}
-              ctaLabel="Richiedi una demo"
-              onCta={() => openExternal(INSTRUCTOR_URL)}
+              ctaLabel="Usa l'app"
+              onCta={() => { window.location.href = "/app"; }}
             />
             <PricingCard
               eyebrow={<>Per <span className="text-primary">AUTOSCUOLE</span></>}
