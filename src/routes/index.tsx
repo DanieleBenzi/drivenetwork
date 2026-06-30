@@ -378,8 +378,8 @@ function LandingPage() {
                 "Community esclusiva",
                 "Tutti gli strumenti DIN",
               ]}
-              ctaLabel="Richiedi una demo"
-              onCta={() => openExternal(INSTRUCTOR_URL)}
+              ctaLabel="Usa l'app"
+              onCta={() => { window.location.href = "/app"; }}
             />
             <PricingCard
               eyebrow={<>Per <span className="text-primary">AUTOSCUOLE</span></>}
