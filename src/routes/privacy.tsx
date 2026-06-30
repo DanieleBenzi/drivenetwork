@@ -38,7 +38,7 @@ function PrivacyPage() {
             Il Titolare del trattamento è <Ph>[Ragione sociale]</Ph>, con sede in{" "}
             <Ph>[indirizzo]</Ph>, P.IVA <Ph>[_____]</Ph>. Per qualsiasi richiesta è possibile
             contattare il Titolare all'indirizzo email{" "}
-            <a href="mailto:info@din.it" className="text-primary hover:underline">info@din.it</a>.
+            <a href="mailto:info@dinitalia.it" className="text-primary hover:underline">info@dinitalia.it</a>.
           </P>
 
           <H2>2. Tipologie di dati raccolti</H2>
