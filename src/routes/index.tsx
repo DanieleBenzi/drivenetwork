@@ -258,12 +258,12 @@ function LandingPage() {
                 ))}
               </ul>
 
-              <button
-                onClick={() => openExternal(INSTRUCTOR_URL)}
+              <Link
+                to="/app"
                 className="mt-9 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
               >
-                Richiedi una demo <ArrowRight className="h-4 w-4" />
-              </button>
+                Usa l'app <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
 
             <div className="flex justify-center lg:justify-end">
