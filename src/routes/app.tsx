@@ -127,6 +127,7 @@ function AppPage() {
               </p>
               <a
                 href={APP_URL}
+                onClick={() => track("click_apri_app", { posizione: "pagina_app_browser" })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-7 inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-accent hover:border-primary/40 transition"
