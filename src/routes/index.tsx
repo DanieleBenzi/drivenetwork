@@ -381,7 +381,7 @@ function LandingPage() {
                 "Tutti gli strumenti DIN",
               ]}
               ctaLabel="Usa l'app"
-              onCta={() => { window.location.href = "/app"; }}
+              onCta={() => { track("click_apri_app", { posizione: "landing_prezzi" }); window.location.href = "/app"; }}
             />
             <PricingCard
               eyebrow={<>Per <span className="text-primary">AUTOSCUOLE</span></>}
