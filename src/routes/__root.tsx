@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { Analytics } from "@vercel/analytics/react";
+
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CookieBanner } from "../components/din/CookieBanner";
@@ -86,11 +88,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png" },
-      { rel: "apple-touch-icon", href: "/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png" },
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png",
+      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap",
+      },
     ],
     scripts: [
       {
@@ -102,7 +114,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           alternateName: "DIN",
           url: "https://drivenetwork.lovable.app",
           logo: "https://drivenetwork.lovable.app/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png",
-          description: "Ecosistema professionale per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola.",
+          description:
+            "Ecosistema professionale per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola.",
           areaServed: "IT",
         }),
       },
@@ -123,6 +136,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );
