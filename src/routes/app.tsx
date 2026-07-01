@@ -48,6 +48,7 @@ function AppPage() {
             <div className="mt-9 flex flex-col items-center gap-3">
               <a
                 href={APP_URL}
+                onClick={() => track("click_apri_app", { posizione: "pagina_app_apri" })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
