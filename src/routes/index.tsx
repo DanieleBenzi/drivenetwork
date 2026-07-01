@@ -261,6 +261,7 @@ function LandingPage() {
 
               <Link
                 to="/app"
+                onClick={() => track("click_apri_app", { posizione: "landing_istruttori" })}
                 className="mt-9 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
               >
                 Usa l'app <ArrowRight className="h-4 w-4" />
