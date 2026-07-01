@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { track } from "@vercel/analytics";
 import {
   ArrowRight, ShieldCheck, Users, Calendar, BarChart3, Award,
   LayoutDashboard, UserCheck, Eye, FileDown, Lock, BadgeCheck, Check,
@@ -260,6 +261,7 @@ function LandingPage() {
 
               <Link
                 to="/app"
+                onClick={() => track("click_apri_app", { posizione: "landing_istruttori" })}
                 className="mt-9 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
               >
                 Usa l'app <ArrowRight className="h-4 w-4" />
@@ -379,7 +381,7 @@ function LandingPage() {
                 "Tutti gli strumenti DIN",
               ]}
               ctaLabel="Usa l'app"
-              onCta={() => { window.location.href = "/app"; }}
+              onCta={() => { track("click_apri_app", { posizione: "landing_prezzi" }); window.location.href = "/app"; }}
             />
             <PricingCard
               eyebrow={<>Per <span className="text-primary">AUTOSCUOLE</span></>}

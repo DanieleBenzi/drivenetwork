@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { track } from "@vercel/analytics";
 import { ArrowRight, ExternalLink, Smartphone, Share, MoreVertical, Plus, Monitor, Apple, Chrome } from "lucide-react";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
@@ -47,6 +48,7 @@ function AppPage() {
             <div className="mt-9 flex flex-col items-center gap-3">
               <a
                 href={APP_URL}
+                onClick={() => track("click_apri_app", { posizione: "pagina_app_apri" })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
@@ -125,6 +127,7 @@ function AppPage() {
               </p>
               <a
                 href={APP_URL}
+                onClick={() => track("click_apri_app", { posizione: "pagina_app_browser" })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-7 inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-accent hover:border-primary/40 transition"
