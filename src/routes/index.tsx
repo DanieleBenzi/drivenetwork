@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { track } from "@vercel/analytics";
 import {
   ArrowRight, ShieldCheck, Users, Calendar, BarChart3, Award,
   LayoutDashboard, UserCheck, Eye, FileDown, Lock, BadgeCheck, Check,
