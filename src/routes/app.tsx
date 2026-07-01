@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { track } from "@vercel/analytics";
 import { ArrowRight, ExternalLink, Smartphone, Share, MoreVertical, Plus, Monitor, Apple, Chrome } from "lucide-react";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
