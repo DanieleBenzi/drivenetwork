@@ -9,6 +9,10 @@ export const Route = createFileRoute("/cookie")({
       { name: "description", content: "Informativa sull'uso dei cookie ai sensi del Provvedimento del Garante Privacy del 10 giugno 2021." },
       { property: "og:title", content: "Cookie Policy — DIN" },
       { property: "og:description", content: "Informativa sull'uso dei cookie del sito DIN." },
+      { property: "og:url", content: "https://drivenetwork.lovable.app/cookie" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://drivenetwork.lovable.app/cookie" },
     ],
   }),
   component: CookiePage,

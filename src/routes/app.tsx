@@ -13,6 +13,10 @@ export const Route = createFileRoute("/app")({
       { name: "description", content: "L'app DIN è una web app: si usa subito dal browser, senza store, e si può installare sul telefono in pochi secondi. Istruzioni per iPhone e Android." },
       { property: "og:title", content: "Usa l'app DIN" },
       { property: "og:description", content: "Accedi all'app DIN dal browser o installala sul telefono in pochi secondi." },
+      { property: "og:url", content: "https://drivenetwork.lovable.app/app" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://drivenetwork.lovable.app/app" },
     ],
   }),
   component: AppPage,

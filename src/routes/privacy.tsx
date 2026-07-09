@@ -9,6 +9,10 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: "Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR) e del D.lgs. 196/2003." },
       { property: "og:title", content: "Privacy Policy — DIN" },
       { property: "og:description", content: "Informativa sul trattamento dei dati personali di DIN." },
+      { property: "og:url", content: "https://drivenetwork.lovable.app/privacy" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://drivenetwork.lovable.app/privacy" },
     ],
   }),
   component: PrivacyPage,
