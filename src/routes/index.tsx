@@ -47,9 +47,9 @@ const FAQS: { q: string; a: string }[] = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DIN — Network professionale per istruttori di guida e autoscuole" },
-      { name: "description", content: "DIN è il network professionale per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola. Richiedi una demo." },
-      { property: "og:title", content: "DIN — Network professionale per istruttori di guida e autoscuole" },
+      { title: "DIN — Network per istruttori di guida e autoscuole" },
+      { name: "description", content: "DIN è il network per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola. Richiedi una demo." },
+      { property: "og:title", content: "DIN — Network per istruttori di guida e autoscuole" },
       { property: "og:description", content: "Identità professionale verificata per istruttori di guida e vista trasparente per le autoscuole. Due app, un ecosistema." },
       { property: "og:url", content: SITE_URL + "/" },
       { property: "og:image", content: OG_IMAGE },
