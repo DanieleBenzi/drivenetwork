@@ -410,6 +410,9 @@ function LandingPage() {
               ]}
               ctaLabel="Richiedi una demo"
               onCta={() => openExternal(SCHOOL_URL)}
+              secondaryLabel="Apri la dashboard"
+              secondaryHref="https://autoscuola.dinitalia.it/"
+              onSecondary={() => track("click_apri_dashboard", { posizione: "landing_prezzi" })}
             />
           </div>
         </div>
