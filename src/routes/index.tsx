@@ -313,12 +313,23 @@ function LandingPage() {
                 ))}
               </ul>
 
-              <button
-                onClick={() => openExternal(SCHOOL_URL)}
-                className="mt-9 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
-              >
-                Richiedi una demo <ArrowRight className="h-4 w-4" />
-              </button>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <button
+                  onClick={() => openExternal(SCHOOL_URL)}
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
+                >
+                  Richiedi una demo <ArrowRight className="h-4 w-4" />
+                </button>
+                <a
+                  href="https://autoscuola.dinitalia.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => track("click_apri_dashboard", { posizione: "landing_autoscuole" })}
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/60 px-5 py-3 text-sm font-semibold text-foreground hover:bg-card transition"
+                >
+                  Apri la dashboard <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -399,6 +410,9 @@ function LandingPage() {
               ]}
               ctaLabel="Richiedi una demo"
               onCta={() => openExternal(SCHOOL_URL)}
+              secondaryLabel="Apri la dashboard"
+              secondaryHref="https://autoscuola.dinitalia.it/"
+              onSecondary={() => track("click_apri_dashboard", { posizione: "landing_prezzi" })}
             />
           </div>
         </div>
@@ -473,9 +487,12 @@ interface PricingCardProps {
   features: string[];
   ctaLabel: string;
   onCta: () => void;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  onSecondary?: () => void;
 }
 
-function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ctaLabel, onCta }: PricingCardProps) {
+function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ctaLabel, onCta, secondaryLabel, secondaryHref, onSecondary }: PricingCardProps) {
   return (
     <div className="relative flex flex-col rounded-2xl border border-border bg-card p-8 lg:p-10 transition hover:border-primary/60">
       <p className="text-xs font-bold uppercase tracking-widest text-foreground">{eyebrow}</p>
@@ -501,6 +518,17 @@ function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ct
       >
         {ctaLabel} <ArrowRight className="h-4 w-4" />
       </button>
+      {secondaryLabel && secondaryHref && (
+        <a
+          href={secondaryHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onSecondary}
+          className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card/60 px-5 py-3 text-sm font-semibold text-foreground hover:bg-card transition"
+        >
+          {secondaryLabel} <ArrowRight className="h-4 w-4" />
+        </a>
+      )}
     </div>
   );
 }
