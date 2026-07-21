@@ -487,9 +487,12 @@ interface PricingCardProps {
   features: string[];
   ctaLabel: string;
   onCta: () => void;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  onSecondary?: () => void;
 }
 
-function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ctaLabel, onCta }: PricingCardProps) {
+function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ctaLabel, onCta, secondaryLabel, secondaryHref, onSecondary }: PricingCardProps) {
   return (
     <div className="relative flex flex-col rounded-2xl border border-border bg-card p-8 lg:p-10 transition hover:border-primary/60">
       <p className="text-xs font-bold uppercase tracking-widest text-foreground">{eyebrow}</p>
@@ -515,6 +518,17 @@ function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ct
       >
         {ctaLabel} <ArrowRight className="h-4 w-4" />
       </button>
+      {secondaryLabel && secondaryHref && (
+        <a
+          href={secondaryHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onSecondary}
+          className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card/60 px-5 py-3 text-sm font-semibold text-foreground hover:bg-card transition"
+        >
+          {secondaryLabel} <ArrowRight className="h-4 w-4" />
+        </a>
+      )}
     </div>
   );
 }
