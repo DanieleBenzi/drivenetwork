@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as CookieRouteImport } from './routes/cookie'
+import { Route as ChiSiamoRouteImport } from './routes/chi-siamo'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const CookieRoute = CookieRouteImport.update({
   id: '/cookie',
   path: '/cookie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChiSiamoRoute = ChiSiamoRouteImport.update({
+  id: '/chi-siamo',
+  path: '/chi-siamo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppRoute = AppRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRoute
+  '/chi-siamo': typeof ChiSiamoRoute
   '/cookie': typeof CookieRoute
   '/privacy': typeof PrivacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/app': typeof AppRoute
+  '/chi-siamo': typeof ChiSiamoRoute
   '/cookie': typeof CookieRoute
   '/privacy': typeof PrivacyRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRoute
+  '/chi-siamo': typeof ChiSiamoRoute
   '/cookie': typeof CookieRoute
   '/privacy': typeof PrivacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/cookie' | '/privacy'
+  fullPaths: '/' | '/app' | '/chi-siamo' | '/cookie' | '/privacy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app' | '/cookie' | '/privacy'
-  id: '__root__' | '/' | '/app' | '/cookie' | '/privacy'
+  to: '/' | '/app' | '/chi-siamo' | '/cookie' | '/privacy'
+  id: '__root__' | '/' | '/app' | '/chi-siamo' | '/cookie' | '/privacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRoute
+  ChiSiamoRoute: typeof ChiSiamoRoute
   CookieRoute: typeof CookieRoute
   PrivacyRoute: typeof PrivacyRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/cookie'
       fullPath: '/cookie'
       preLoaderRoute: typeof CookieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chi-siamo': {
+      id: '/chi-siamo'
+      path: '/chi-siamo'
+      fullPath: '/chi-siamo'
+      preLoaderRoute: typeof ChiSiamoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app': {
@@ -105,9 +122,20 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRoute,
+  ChiSiamoRoute: ChiSiamoRoute,
   CookieRoute: CookieRoute,
   PrivacyRoute: PrivacyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -28,7 +28,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Quanto costa DIN?",
-    a: "Il piano per gli istruttori parte da 9,90€ al mese e include profilo verificato, badge, certificazioni e statistiche avanzate. Il piano per le autoscuole parte da 99€ al mese fino a 5 istruttori, con dashboard completa, gestione istruttori, monitoraggio esami, reportistica ed export documentale.",
+    a: "Oggi DIN è in fase di test ed è gratuita: istruttori e autoscuole possono usare le funzionalità disponibili senza costi e senza vincoli di durata. In futuro alcune funzioni avanzate potranno diventare premium a pagamento: i piani indicati in questa pagina sono indicativi e non sono ancora attivi. Chi partecipa alla fase di test verrà avvisato per tempo prima di qualsiasi cambiamento.",
   },
   {
     q: "L'autoscuola può modificare i dati dell'istruttore?",

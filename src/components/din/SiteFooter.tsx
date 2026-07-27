@@ -36,6 +36,9 @@ export function SiteFooter() {
                     <a href={n.href} className="hover:text-foreground transition">{n.label}</a>
                   </li>
                 ))}
+                <li>
+                  <Link to="/chi-siamo" className="hover:text-foreground transition">Chi siamo</Link>
+                </li>
               </ul>
             </div>
             <div>
