@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { X, GraduationCap, Building2 } from "lucide-react";
 
-export const INSTRUCTOR_URL = "https://calendly.com/din-demo?a1=Sono%20interessato%20all%27app%20istruttori";
-export const SCHOOL_URL = "https://calendly.com/din-demo?a1=Sono%20interessato%20all%27app%20autoscuola";
+export const INSTRUCTOR_URL = "https://app.dinitalia.it/";
+export const SCHOOL_URL = "https://autoscuola.dinitalia.it/";
 
 interface DemoModalProps {
   open: boolean;
@@ -49,9 +49,9 @@ export function DemoModal({ open, onClose }: DemoModalProps) {
         </button>
 
         <h2 id="demo-modal-title" className="text-2xl sm:text-3xl font-bold text-foreground">
-          Per cosa sei interessato a DIN?
+          Quale app ti serve?
         </h2>
-        <p className="mt-2 text-muted-foreground">Scegli il tuo profilo per prenotare la demo giusta.</p>
+        <p className="mt-2 text-muted-foreground">Scegli il tuo profilo per accedere all'app giusta.</p>
 
         <div className="mt-7 grid gap-3 sm:grid-cols-2">
           <button

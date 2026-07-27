@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Mail } from "lucide-react";
 import { DinLogo } from "./DinLogo";
 import { DemoModal } from "./DemoModal";
+import { SocialLinks } from "./SocialLinks";
 
 const NAV = [
   { href: "/#come-funziona", label: "Come funziona" },
@@ -23,6 +24,9 @@ export function SiteFooter() {
               <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
                 L'ecosistema professionale per istruttori e autoscuole.
               </p>
+              <div className="mt-5">
+                <SocialLinks />
+              </div>
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-foreground">Naviga</p>
@@ -44,7 +48,7 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <button onClick={() => setModal(true)} className="text-left hover:text-foreground transition">
-                    Richiedi una demo
+                    Accedi all'app
                   </button>
                 </li>
               </ul>

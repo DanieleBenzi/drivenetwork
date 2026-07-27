@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "DIN — Network per istruttori di guida e autoscuole" },
-      { name: "description", content: "DIN è il network per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola. Richiedi una demo." },
+      { name: "description", content: "DIN è il network per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola. Scopri come funziona." },
       { property: "og:title", content: "DIN — Network per istruttori di guida e autoscuole" },
       { property: "og:description", content: "Identità professionale verificata per istruttori di guida e vista trasparente per le autoscuole. Due app, un ecosistema." },
       { property: "og:url", content: SITE_URL + "/" },
@@ -146,7 +146,7 @@ function LandingPage() {
                   onClick={openModal}
                   className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
                 >
-                  Richiedi una demo <ArrowRight className="h-4 w-4" />
+                  Accedi all'app <ArrowRight className="h-4 w-4" />
                 </button>
                 <a
                   href="#come-funziona"
@@ -314,18 +314,12 @@ function LandingPage() {
               </ul>
 
               <div className="mt-9 flex flex-wrap gap-3">
-                <button
-                  onClick={() => openExternal(SCHOOL_URL)}
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
-                >
-                  Richiedi una demo <ArrowRight className="h-4 w-4" />
-                </button>
                 <a
-                  href="https://autoscuola.dinitalia.it/"
+                  href={SCHOOL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track("click_apri_dashboard", { posizione: "landing_autoscuole" })}
-                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-card/60 px-5 py-3 text-sm font-semibold text-foreground hover:bg-card transition"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
                 >
                   Apri la dashboard <ArrowRight className="h-4 w-4" />
                 </a>
@@ -392,7 +386,7 @@ function LandingPage() {
                 "Tutti gli strumenti DIN",
               ]}
               ctaLabel="Usa l'app"
-              onCta={() => { track("click_apri_app", { posizione: "landing_prezzi" }); window.location.href = "/app"; }}
+              onCta={() => { track("click_apri_app", { posizione: "landing_prezzi" }); openExternal(INSTRUCTOR_URL); }}
             />
             <PricingCard
               eyebrow={<>Per <span className="text-primary">AUTOSCUOLE</span></>}
@@ -408,11 +402,8 @@ function LandingPage() {
                 "Export documentale",
                 "Supporto dedicato",
               ]}
-              ctaLabel="Richiedi una demo"
-              onCta={() => openExternal(SCHOOL_URL)}
-              secondaryLabel="Apri la dashboard"
-              secondaryHref="https://autoscuola.dinitalia.it/"
-              onSecondary={() => track("click_apri_dashboard", { posizione: "landing_prezzi" })}
+              ctaLabel="Apri la dashboard"
+              onCta={() => { track("click_apri_dashboard", { posizione: "landing_prezzi" }); openExternal(SCHOOL_URL); }}
             />
           </div>
         </div>
@@ -443,7 +434,7 @@ function LandingPage() {
       </section>
 
       {/* CTA finale */}
-      <section className="relative border-t border-border overflow-hidden" aria-label="Richiedi una demo">
+      <section className="relative border-t border-border overflow-hidden" aria-label="Accedi all'app">
         <div
           aria-hidden
           className="absolute inset-0 -z-10"
@@ -457,14 +448,14 @@ function LandingPage() {
             Pronto a entrare nel network DIN?
           </h2>
           <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
-            Prenota una demo e scopri come l'identità professionale dei tuoi istruttori cambia il modo
+            Accedi all'app e scopri come l'identità professionale dei tuoi istruttori cambia il modo
             di lavorare della tua autoscuola.
           </p>
           <button
             onClick={openModal}
             className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
           >
-            Richiedi una demo <ArrowRight className="h-4 w-4" />
+            Accedi all'app <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </section>
@@ -487,12 +478,9 @@ interface PricingCardProps {
   features: string[];
   ctaLabel: string;
   onCta: () => void;
-  secondaryLabel?: string;
-  secondaryHref?: string;
-  onSecondary?: () => void;
 }
 
-function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ctaLabel, onCta, secondaryLabel, secondaryHref, onSecondary }: PricingCardProps) {
+function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ctaLabel, onCta }: PricingCardProps) {
   return (
     <div className="relative flex flex-col rounded-2xl border border-border bg-card p-8 lg:p-10 transition hover:border-primary/60">
       <p className="text-xs font-bold uppercase tracking-widest text-foreground">{eyebrow}</p>
@@ -518,17 +506,6 @@ function PricingCard({ eyebrow, subtitle, price, period, priceNote, features, ct
       >
         {ctaLabel} <ArrowRight className="h-4 w-4" />
       </button>
-      {secondaryLabel && secondaryHref && (
-        <a
-          href={secondaryHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onSecondary}
-          className="mt-3 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-card/60 px-5 py-3 text-sm font-semibold text-foreground hover:bg-card transition"
-        >
-          {secondaryLabel} <ArrowRight className="h-4 w-4" />
-        </a>
-      )}
     </div>
   );
 }

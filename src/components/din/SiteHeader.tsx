@@ -32,7 +32,7 @@ export function SiteHeader() {
               onClick={() => setModal(true)}
               className="hidden md:inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition shadow-glow"
             >
-              Richiedi una demo
+              Accedi all'app
             </button>
             <button
               onClick={() => setMenu((s) => !s)}
@@ -59,7 +59,7 @@ export function SiteHeader() {
               onClick={() => { setMenu(false); setModal(true); }}
               className="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
             >
-              Richiedi una demo
+              Accedi all'app
             </button>
           </div>
         )}

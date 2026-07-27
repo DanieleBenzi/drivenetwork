@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { track } from "@vercel/analytics";
 import { ArrowRight, ExternalLink, Smartphone, Share, MoreVertical, Plus, Monitor, Apple, Chrome } from "lucide-react";
+import { SCHOOL_URL } from "@/components/din/DemoModal";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
 
@@ -147,9 +148,15 @@ function AppPage() {
           <div className="mx-auto max-w-4xl px-5 lg:px-8 py-14 text-center">
             <p className="text-muted-foreground">
               Sei un'autoscuola?{" "}
-              <Link to="/" hash="contatti" className="inline-flex items-center gap-1 text-primary font-semibold hover:underline">
-                Richiedi una demo <ArrowRight className="h-4 w-4" />
-              </Link>
+              <a
+                href={SCHOOL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track("click_apri_dashboard", { posizione: "pagina_app_autoscuole" })}
+                className="inline-flex items-center gap-1 text-primary font-semibold hover:underline"
+              >
+                Apri la dashboard <ArrowRight className="h-4 w-4" />
+              </a>
             </p>
           </div>
         </section>
