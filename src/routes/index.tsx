@@ -28,7 +28,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Quanto costa DIN?",
-    a: "Oggi DIN è in fase di test ed è gratuita: istruttori e autoscuole possono usare le funzionalità disponibili senza costi e senza vincoli di durata. In futuro alcune funzioni avanzate potranno diventare premium a pagamento: i piani indicati in questa pagina sono indicativi e non sono ancora attivi. Chi partecipa alla fase di test verrà avvisato per tempo prima di qualsiasi cambiamento.",
+    a: "Oggi DIN è in fase di test ed è gratuita: istruttori e autoscuole possono usare le funzionalità disponibili senza costi e senza vincoli di durata. In futuro alcune funzioni avanzate potranno diventare premium a pagamento. Chi partecipa alla fase di test verrà avvisato per tempo prima di qualsiasi cambiamento.",
   },
   {
     q: "L'autoscuola può modificare i dati dell'istruttore?",
@@ -74,9 +74,8 @@ export const Route = createFileRoute("/")({
               description: "Registro professionale per istruttori di guida: allievi, guide, esami, ID DIN verificato e certificazioni portabili.",
               offers: {
                 "@type": "Offer",
-                price: "9.90",
+                price: "0",
                 priceCurrency: "EUR",
-                priceSpecification: { "@type": "UnitPriceSpecification", price: "9.90", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" } },
               },
             },
             {
@@ -87,9 +86,8 @@ export const Route = createFileRoute("/")({
               description: "Gestionale per autoscuole: dashboard aggregata, istruttori collegati verificati, monitoraggio esami ed export documentale.",
               offers: {
                 "@type": "Offer",
-                price: "99.00",
+                price: "0",
                 priceCurrency: "EUR",
-                priceSpecification: { "@type": "UnitPriceSpecification", price: "99.00", priceCurrency: "EUR", referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" } },
               },
             },
             {
@@ -370,13 +368,16 @@ function LandingPage() {
             <p className="mt-4 text-muted-foreground">
               Due piani pensati per i due lati dell'ecosistema. Pari dignità, stessa identità verificata.
             </p>
+            <p className="mt-3 font-semibold text-foreground">
+              DIN è in <span className="text-primary">versione Beta</span>: oggi entrambe le app sono completamente gratuite.
+            </p>
           </div>
 
           <div className="mt-12 grid md:grid-cols-2 gap-5">
             <PricingCard
               eyebrow={<>Per <span className="text-primary">ISTRUTTORI</span></>}
               subtitle="Fai crescere la tua carriera"
-              price="a partire da 9,90€"
+              price="0€"
               period="/ mese"
               features={[
                 "Badge e certificazioni",
@@ -391,9 +392,8 @@ function LandingPage() {
             <PricingCard
               eyebrow={<>Per <span className="text-primary">AUTOSCUOLE</span></>}
               subtitle="Gestisci, monitora, valorizza"
-              price="a partire da 99€"
+              price="0€"
               period="/ mese"
-              priceNote="fino a 5 istruttori"
               features={[
                 "Dashboard completa",
                 "Gestione istruttori",
