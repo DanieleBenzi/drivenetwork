@@ -45,13 +45,20 @@ src/
     Mockups.tsx      # PhoneMockup e DesktopMockup (illustrazioni UI)
   components/ui/   # componenti shadcn/ui (non modificare direttamente)
 public/
-  llms.txt, robots.txt, sitemap.xml
+  llms.txt, robots.txt, sitemap.xml   # file SEO statici, aggiornati a mano
+  din-logo.png                        # logo usato anche nello schema Organization
 ```
 
 ## Costanti importanti
 - `src/lib/site.ts` → `SITE_URL` (`https://www.dinitalia.it`), `EMAIL` (`info@dinitalia.it`), `FEEDBACK_MAILTO`
 - `src/routes/index.tsx` → `SITE_URL` (duplicato locale), `OG_IMAGE` (immagine Open Graph su Cloudflare R2, non modificare senza caricarne una nuova)
 - `src/components/din/DemoModal.tsx` → `INSTRUCTOR_URL` (`https://app.dinitalia.it/`), `SCHOOL_URL` (`https://autoscuola.dinitalia.it/`)
+
+## SEO — regole da seguire
+- Canonical, `og:url` e URL nei JSON-LD si costruiscono sempre da `SITE_URL` (es. `SITE_URL + "/privacy"`), mai con un dominio scritto a mano.
+- `src/routes/__root.tsx` contiene lo schema `Organization` (url + logo) comune a tutte le pagine.
+- **Nuova pagina** → aggiungerla anche a `public/sitemap.xml` e `public/llms.txt`.
+- **Cambio di prezzi o piani** → aggiornare insieme: sezione Prezzi, FAQ "Quanto costa DIN?", `offers` nel JSON-LD di `index.tsx` e `public/llms.txt`.
 
 ## Contenuto / sezioni della home
 1. **Hero** — value prop principale + CTA "Accedi all'app" (apre la modale)
@@ -66,11 +73,17 @@ public/
 
 ## Regole importanti — Lovable e lavoro in due
 Il repo è condiviso e sincronizzato con [Lovable](https://lovable.dev): i commit fatti dall'editor Lovable arrivano su `main` da soli.
-- Fare `git pull` prima di iniziare, commit piccoli e push rapido.
+- Fare `git pull` prima di iniziare e fare commit piccoli.
+- **Push solo su richiesta esplicita**: Claude fa commit, non push. Nota: i commit locali possono finire su GitHub anche senza un push manuale (sync automatico dall'editor), quindi un commit va considerato già pubblico.
 - **Non riscrivere la storia git pubblica**: niente `force push`, `rebase`, `amend` o `squash` su commit già pushati.
 
 ## Residui da ignorare
 `public/CNAME` e `.github/workflows/deploy.yml` sono avanzi di una migrazione a GitHub Pages mai completata. Pages non è attivo: se su GitHub si vedono build rosse è quel workflow, non il deploy Vercel.
+
+## Verifica prima del commit
+- `npx tsc --noEmit -p .` deve passare.
+- `bun lint` riporta già centinaia di errori **solo Prettier** preesistenti: controllare che non compaiano errori di altre regole.
+- Con il dev server acceso, controllare le pagine toccate (canonical, `og:url`, testi).
 
 ## To-do
 - [ ] Footer: P.IVA ancora segnaposto (`00000000000`)
