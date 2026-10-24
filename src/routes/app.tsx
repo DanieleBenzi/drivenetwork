@@ -4,6 +4,7 @@ import { ArrowRight, ExternalLink, Smartphone, Share, MoreVertical, Plus, Monito
 import { SCHOOL_URL } from "@/components/din/DemoModal";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
+import { SITE_URL } from "@/lib/site";
 
 const APP_URL = "https://app.dinitalia.it";
 
@@ -14,10 +15,10 @@ export const Route = createFileRoute("/app")({
       { name: "description", content: "L'app DIN è una web app: si usa subito dal browser, senza store, e si può installare sul telefono in pochi secondi. Istruzioni per iPhone e Android." },
       { property: "og:title", content: "Usa l'app DIN" },
       { property: "og:description", content: "Accedi all'app DIN dal browser o installala sul telefono in pochi secondi." },
-      { property: "og:url", content: "https://drivenetwork.lovable.app/app" },
+      { property: "og:url", content: SITE_URL + "/app" },
     ],
     links: [
-      { rel: "canonical", href: "https://drivenetwork.lovable.app/app" },
+      { rel: "canonical", href: SITE_URL + "/app" },
     ],
   }),
   component: AppPage,

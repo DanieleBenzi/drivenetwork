@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://drivenetwork.lovable.app/sitemap.xml
+Sitemap: https://www.dinitalia.it/sitemap.xml

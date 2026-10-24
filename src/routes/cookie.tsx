@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/cookie")({
   head: () => ({
@@ -9,10 +10,10 @@ export const Route = createFileRoute("/cookie")({
       { name: "description", content: "Informativa sull'uso dei cookie ai sensi del Provvedimento del Garante Privacy del 10 giugno 2021." },
       { property: "og:title", content: "Cookie Policy — DIN" },
       { property: "og:description", content: "Informativa sull'uso dei cookie del sito DIN." },
-      { property: "og:url", content: "https://drivenetwork.lovable.app/cookie" },
+      { property: "og:url", content: SITE_URL + "/cookie" },
     ],
     links: [
-      { rel: "canonical", href: "https://drivenetwork.lovable.app/cookie" },
+      { rel: "canonical", href: SITE_URL + "/cookie" },
     ],
   }),
   component: CookiePage,

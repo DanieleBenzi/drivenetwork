@@ -73,7 +73,4 @@ Il repo è condiviso e sincronizzato con [Lovable](https://lovable.dev): i commi
 `public/CNAME` e `.github/workflows/deploy.yml` sono avanzi di una migrazione a GitHub Pages mai completata. Pages non è attivo: se su GitHub si vedono build rosse è quel workflow, non il deploy Vercel.
 
 ## To-do
-- [ ] `public/llms.txt` riporta ancora i vecchi prezzi (9,90€ / 99€ al mese): allinearlo alla Beta gratuita
-- [ ] `public/sitemap.xml` e `public/robots.txt` puntano ancora a `drivenetwork.lovable.app` → `https://www.dinitalia.it`
-- [ ] `src/routes/app.tsx`: canonical e `og:url` puntano ancora a `drivenetwork.lovable.app`
 - [ ] Footer: P.IVA ancora segnaposto (`00000000000`)

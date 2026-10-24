@@ -2,11 +2,12 @@
 
 > Network professionale per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola.
 
-DIN collega istruttori di guida e autoscuole in un ecosistema unico. Gli istruttori hanno un'identità professionale verificata (ID DIN) e un registro digitale di allievi, guide ed esami. Le autoscuole ottengono una vista trasparente e in sola lettura sul lavoro degli istruttori collegati, con dashboard aggregata ed export documentale. Piani da 9,90€/mese per istruttori e da 99€/mese per autoscuole.
+DIN collega istruttori di guida e autoscuole in un ecosistema unico. Gli istruttori hanno un'identità professionale verificata (ID DIN) e un registro digitale di allievi, guide ed esami. Le autoscuole ottengono una vista trasparente e in sola lettura sul lavoro degli istruttori collegati, con dashboard aggregata ed export documentale. DIN è in versione Beta: oggi entrambe le app sono gratuite.
 
 ## Pages
 
-- [Home](/): Panoramica di DIN, come funziona, funzionalità per istruttori e autoscuole, prezzi e FAQ.
+- [Home](/): Panoramica di DIN, come funziona, funzionalità per istruttori e autoscuole, piani (Beta gratuita) e FAQ.
 - [Usa l'app](/app): Istruzioni per accedere all'app DIN via browser o installarla come PWA su iPhone e Android.
+- [Chi siamo](/chi-siamo): Chi c'è dietro DIN e perché è nata la piattaforma.
 - [Privacy Policy](/privacy): Informativa GDPR sul trattamento dei dati personali.
 - [Cookie Policy](/cookie): Informativa sull'uso dei cookie.

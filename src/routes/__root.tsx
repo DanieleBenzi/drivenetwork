@@ -14,6 +14,7 @@ import { Analytics } from "@vercel/analytics/react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { CookieBanner } from "../components/din/CookieBanner";
+import { SITE_URL } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -112,8 +113,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "Organization",
           name: "DIN — Drive Instructor Network",
           alternateName: "DIN",
-          url: "https://drivenetwork.lovable.app",
-          logo: "https://drivenetwork.lovable.app/__l5e/assets-v1/f134215a-2b0f-4ac6-83a4-236b48cfc204/din-logo.png",
+          url: SITE_URL,
+          logo: SITE_URL + "/din-logo.png",
           description:
             "Ecosistema professionale per istruttori di guida e autoscuole italiane: identità verificata, registro istruttore e gestionale autoscuola.",
           areaServed: "IT",

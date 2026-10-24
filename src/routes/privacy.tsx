@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/din/SiteHeader";
 import { SiteFooter } from "@/components/din/SiteFooter";
+import { SITE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -9,10 +10,10 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: "Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR) e del D.lgs. 196/2003." },
       { property: "og:title", content: "Privacy Policy — DIN" },
       { property: "og:description", content: "Informativa sul trattamento dei dati personali di DIN." },
-      { property: "og:url", content: "https://drivenetwork.lovable.app/privacy" },
+      { property: "og:url", content: SITE_URL + "/privacy" },
     ],
     links: [
-      { rel: "canonical", href: "https://drivenetwork.lovable.app/privacy" },
+      { rel: "canonical", href: SITE_URL + "/privacy" },
     ],
   }),
   component: PrivacyPage,
